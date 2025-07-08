@@ -41,13 +41,24 @@
         />
       </SidebarDrawer>
     </div>
+
+    <div class="grid grid-cols-1 gap-2 text-gray-600 mt-6 text-sm md:grid-cols-2">
+      <span class="text-center mx-4 md:text-right">
+        <CodeBracketIcon class="h-5 inline-block mr-2" />
+        <a class="text-blue-500 focus:text-blue-700 transition duration-150 ease-in-out" href="https://github.com/klxf/CEM5861G-Dashboard">CEM5861G-Dashboard</a>
+      </span>
+      <span class="text-center mx-4 md:text-left">
+        <ScaleIcon class="h-5 inline-block mr-2" />
+        <a class="text-blue-500 focus:text-blue-700 transition duration-150 ease-in-out" href="https://choosealicense.com/licenses/apache-2.0/">Apache License 2.0</a>
+      </span>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import Toastify from 'toastify-js';
-import { Cog6ToothIcon } from '@heroicons/vue/24/outline';
+import { Cog6ToothIcon, CodeBracketIcon, ScaleIcon } from '@heroicons/vue/24/outline';
 import SerialPortControl from './components/SerialPortControl.vue';
 import DataDisplay from './components/DataDisplay.vue';
 import ChartComponent from './components/ChartComponent.vue';
@@ -131,7 +142,3 @@ const showToast = (type, message) => {
   }).showToast();
 };
 </script>
-
-<style>
-/* 自定义样式 */
-</style>
