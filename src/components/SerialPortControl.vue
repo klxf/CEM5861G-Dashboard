@@ -93,7 +93,7 @@ const disconnectSerialPort = async () => {
     isConnected.value = false;
     portName.value = '';
     logMessage('info', '已断开串口连接。');
-    emit('show-toast', 'info', '已断开串口连接。');
+    emit('show-toast', 'info', '已断开串口连接');
   } catch (error) {
     logMessage('error', `断开串口失败: ${error.message}`);
     emit('show-toast', 'error', `断开串口失败: ${error.message}`);
@@ -181,7 +181,7 @@ const readData = async () => {
         logMessage('error', `读取串口数据失败: ${error.message}`);
         emit('show-toast', 'error', `串口读取失败: ${error.message}`);
       }
-      disconnectSerialPort();
+      await disconnectSerialPort();
       break;
     }
   }
@@ -345,7 +345,7 @@ const sendData = async (data) => {
       emit('show-toast', 'error', `发送数据失败: ${error.message}`);
     }
   } else {
-    logMessage('warn', '串口未连接或写入器不可用。');
+    logMessage('warn', '串口未连接或写入器不可用');
     emit('show-toast', 'warning', '串口未连接或写入器不可用！');
   }
 };
@@ -358,7 +358,6 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  disconnectSerialPort();
 });
 
 defineExpose({ sendData });

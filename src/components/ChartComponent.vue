@@ -48,15 +48,7 @@ const createChart = () => {
           borderColor: 'rgb(255, 99, 132)',
           tension: 0.1,
           fill: false,
-          hidden: true, // 默认隐藏，可以切换显示
-        },
-        {
-          label: '方位角度 (度)',
-          data: props.chartData.map(d => d.azimuthAngle),
-          borderColor: 'rgb(54, 162, 235)',
-          tension: 0.1,
-          fill: false,
-          hidden: true,
+          hidden: true, // 默认隐藏
         },
       ],
     },
@@ -99,7 +91,6 @@ watch(() => props.chartData, () => {
     myChart.data.labels = props.chartData.map(d => new Date(d.timestamp).toLocaleTimeString());
     myChart.data.datasets[0].data = props.chartData.map(d => d.distance);
     myChart.data.datasets[1].data = props.chartData.map(d => d.speed);
-    myChart.data.datasets[2].data = props.chartData.map(d => d.azimuthAngle);
     myChart.update();
   } else {
     createChart();
